@@ -1,10 +1,34 @@
-// require
-const express = require('express')
-const app = express()
-app.get('/', (req, res) => { res.send('index page') })
-app.get('/index0', (req, res) => { res.send('index0 page') })
-app.get('/index1', (req, res) => { res.send('index1 page') })
-app.get('/index2', (req, res) => { res.send('index2 page') })
-app.listen(3000, () => {
-  console.log(`3000번 port에 http server를 띄웠습니다.`)
-})
+var express = require('express'); // 웹 서버 사용
+var fs = require('fs'); // 파일 로드 사용
+
+var app = express();
+
+app.use(express.static('public'));
+
+var port = 8080;
+
+app.listen(port, function(){
+    console.log('Server Start, Port : ' + port);
+});
+
+app.get('/', function(req, res){
+    fs.readFile('index1.html', function(error, data){
+        if(error){
+            console.log(error);
+        }else{
+            res.writeHead(200, {'Content-Type': 'text/html'});
+            res.end(data);
+        }
+    });
+});
+
+app.get('/info', function(req, res){
+    fs.readFile('index2.html', function(error, data){
+        if(error){
+            console.log(error);
+        }else{
+            res.writeHead(200, {'Content-Type': 'text/html'});
+            res.end(data);
+        }
+    });
+});
