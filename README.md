@@ -6,6 +6,7 @@ Web page that provides a service that calculates the midpoint of people who atte
 ### 1. 프로그램 소개
 ### 2. node js 설치 및 이용
 ### 3. aws(웹서버)  
+### 4. tmap 지도 api 사용 
 <br/><br/>
 # 1. 프로그램 소개
 <br/>
@@ -73,3 +74,7 @@ private key를 생성하려면 [puttyGen](https://www.puttygen.com/)이 필요�
 14. 서버를 시작하는 것 만큼이나 종료하는 것 또한 중요하다. 다시 aws 웹 홈페이지로 돌아가자. 인스턴스를 선택해 인스턴스의 상태를 **_중지**_ 로 바꾸어주면 된다. **주의할 점은, _종료_ 가 아닌 _중지_ 로 인스턴스를 멈춰야 한다는 것 이다. 종료를 누르면 해당 인스턴스는 삭제되니 유의하자.**
 ![](https://github.com/jisoo449/where_shall_we_meet/blob/master/readmeimg/%EC%A2%85%EB%A3%8C1.PNG)
 <br/><br/>  
+<br/><br/>  
+### 4. tmap 지도 api 사용  
+설명서 : [http://tmapapi.sktelecom.com/main.html#webservice/guide/webserviceGuide.guide4](http://tmapapi.sktelecom.com/main.html#webservice/guide/webserviceGuide.guide4)  
+해당 페이지를 참고하여 코딩을 진행하자
