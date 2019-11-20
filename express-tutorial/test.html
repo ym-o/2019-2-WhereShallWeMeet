@@ -1,0 +1,52 @@
+<HTML>
+
+<HEAD>
+  <script language="javascript">
+    function insertRowTest() {
+      var oTable = document.all["tt"];
+      var oRow = oTable.insertRow();
+      oRow.onmouseover = function() {
+        tt.clickedRowIndex = this.rowIndex
+      };
+
+      //alert(tt.clickedRowIndex);
+
+
+      var oCell = null;
+
+      oCell = oRow.insertCell();
+      oCell.innerHTML = "<input type='text' name=''>";
+      oCell = oRow.insertCell();
+      oCell.innerHTML = "Name_add";
+      oCell = oRow.insertCell();
+      oCell.innerHTML = "<input type='button' value='delete' onclick='deleteRowTest();'>"
+    }
+
+    function deleteRowTest() {
+      //alert(tt.clickedRowIndex);
+
+      tt.index = 1;
+      alert(tt.index);
+      tt.deleteRow(tt.index);
+    }
+  </script>
+</HEAD>
+
+<BODY>
+  <form name="form1" method="post" action="">
+    <table border="1" id="tt">
+      <tr>
+        <td colspan="3" align="right">
+          <input type="button" value="add" onclick="insertRowTest();">
+        </td>
+      </tr>
+      <tr>
+        <td><input type="text" name=""></td>
+        <td>Name</td>
+        <td> </td>
+      </tr>
+    </table>
+  </form>
+</BODY>
+
+</HTML>
