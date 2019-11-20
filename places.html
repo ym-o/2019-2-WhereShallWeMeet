@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>어디서 뭐하지</title>
+
+  <!--<link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap" rel="stylesheet">-->
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Calistoga|Jua&display=swap&subset=korean');
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      /*vh(view height)로 창 크기 조절 시 유동적으로 조절되도록*/
+      overflow: hidden
+    }
+
+    .inmap {
+      width: 100vw;
+      /*vw(view width)로 창 크기 조절 시 유동적으로 조절되도록*/
+      height: 100vh;
+      /*vh(view height)로 창 크기 조절 시 유동적으로 조절되도록*/
+      background-image: url('/mapimg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      color: rgb(0, 0, 0);
+      /* 지도 삽입 하면 필요 없는 속성*/
+      text-align: center
+    }
+
+    nav {
+      width: 100%;
+      background-color: rgb(45, 62, 80);
+      display: table;
+      border-collapse: collapse;
+      table-layout: fixed;
+      border: none
+    }
+
+    nav ul {
+      display: table-row;
+      background-color: rgb(45, 62, 80);
+    }
+
+    nav li {
+      float: left;
+      display: table-cell;
+      text-align: center;
+      padding: 10px 10px 10px 10px;
+      margin: 0px 20px 0px 20px;
+      background-color: rgb(45, 62, 80);
+      color: rgb(255, 255, 255);
+    }
+
+    a.category {
+      font-family: 'Calistoga', sans-serif;
+      font-size: 20px;
+      /*background-color: rgb(45, 62, 80);*/
+      color: white;
+      text-decoration: none
+    }
+
+    a:hover {
+      color: rgb(255, 55, 100);
+      text-decoration: none;
+    }
+
+    #recommend {
+      width: 20vw;
+      height: 100vh;
+      float: left;
+      background-color: rgb(45, 62, 80);
+      visibility: hidden;
+    }
+
+    iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+    }
+
+    /*
+    .prev {
+      margin-top: 0;
+      width: 100px;
+      float: right;
+      border: none
+    }
+
+    .back {
+      border-radius: 5px;
+      border: 0px;
+      width: 100px;
+      height: auto;
+      margin: 0 auto;
+      background-color: rgba(255, 255, 255, 0);
+      color: rgb(255, 55, 100);
+      font-family: 'Jua', sans-serif;
+      font-size: 20px;
+      border: none;
+      text-align: center;
+      display: inline-block
+    }
+
+    .back:hover {
+      background-color: rgb(255, 55, 100);
+      color: rgb(255, 255, 255)
+    }
+    */
+    .btn {
+      margin: 77vh auto;
+      /*상대적 margin 나중에 변경 예정*/
+      width: 180px;
+    }
+
+    .save {
+      border-radius: 10px;
+      width: 180px;
+      height: 50px;
+      margin: 0 auto;
+      background-color: rgb(255, 55, 100);
+      color: rgb(255, 255, 255);
+      font-family: 'Calistoga', sans-serif;
+      font-size: 25px;
+      border: none;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block
+    }
+  </style>
+
+  <!--<link href="css/placesc.css" rel="stylesheet">-->
+  <!--<link rel="stylesheet" href="css/placesc.css"-->
+</head>
+
+<body>
+  <div class="inmap">
+    <nav>
+      <ul>
+        <li><a class="category" onclick="document.all.recommend.eating1.style.visibility='visible', document.all.cafe.recommend.visibility='hidden'">
+          eating</a></li>
+        <li><a class="category" onclick="document.all.recommend.cafe.style.visibility='visible'">
+          cafe</a></li>
+        <li><a class="category" href='#culture'>culture</a></li>
+        <li><a class="category" href='#play'>play</a></li>
+        <li><a class="category" href='#study'>study</a></li>
+        <!--<li><button type="button" onclick="location.href='mid'">eating</li>-->
+      </ul>
+    </nav>
+    <div id="recommend">
+      <iframe id="eating1" src="https://map.naver.com/v5/search/%EC%8B%9D%EB%8B%B9?c=14137041.5189576,4517344.1714899,16,0,0,0,dh"></iframe>
+      <iframe id="cafe1" src="https://map.naver.com/v5/search/%EC%B9%B4%ED%8E%98?c=14137048.0877647,4517462.4100181,16,0,0,0,dh"></iframe>
+    </div>
+    <!--
+    <div class="prev">
+      <button class="back" onclick="location.href='mid'">
+        뒤로 가기
+      </button>
+    </div>
+    -->
+    <div class="btn">
+      <button class="save" onclick="location.href='history'">
+        save
+      </button>
+    </div>
+  </div>
+
+
+</body>
+
+</html>
