@@ -9,6 +9,18 @@ Web page that provides a service that calculates the midpoint of people who atte
 ### 4. tmap 지도 api 사용 
 <br/><br/>
 # 1. 프로그램 소개
+## 1.1 프로그램 구조
+### 1.1.1 구성도  
+### 1.1.2 데이터베이스  
+데이터 베이스는 모임 이름, 날짜, 참석자 이름, 장소 로 구성된다.  
+
+ex)
+
+|Name|Date|Attendees|Place1|Place2|Place3|Place4|Place5|Place6|Place7|Place8|Place9|Place10|
+|------|------|------|------|------|------|------|------|------|------|------|------|------|
+|모임1|2019.12.25|Alice, Bob, Eve|명동김치찌개|아비꼬카레|춘천닭칼국수|
+
+
 <br/>
 
 # 2. node js 설치 및 이용
