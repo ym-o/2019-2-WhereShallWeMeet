@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>어디서 뭐하지</title>
+  <script src="https://apis.openapi.sk.com/tmap/jsv2?version=1&format=javascript&appkey=e6357d93-56be-48cb-8d35-5079d5fc8b3e"></script>
+  <script type="text/javascript">
+    function initTmap() {
+      var map = new Tmapv2.Map("map_div", {
+        center: new Tmapv2.LatLng(37.566481622437934, 126.98502302169841), // 지도 초기 좌표
+        width: "100vw",
+        height: "100vh",
+        zoom: 16
+      });
+    }
+  </script>
+  <link href="./css/midmapc.css" rel="stylesheet">
+
+</head>
+
+<body onload="initTmap()">
+  <div id="map_div"></div>
+
+  <div class="btn1">
+    <button class="button1" onclick="location.href='place'">
+      뭐하지
+    </button>
+  </div>
+
+</body>
+
+</html>
