@@ -50,9 +50,10 @@
   position:static;
   height: 65vh;
   width: 30vw;
+  color: white;
 }
 
-.table{
+.attendent_table{
   width: 27vw;
   height: 5vh;
   color: white;
