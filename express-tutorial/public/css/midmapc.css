@@ -8,14 +8,24 @@ body {
   /*vh(view height)로 창 크기 조절 시 유동적으로 조절되도록*/
   overflow: hidden
 }
+.map_div {
+  position:relative;
+  width:100vw;
+  height:100vh;
+  overflow:hidden;
+}
 
 .btn1 {
-  position:relative;
-  left: 0vw;
-  /*top: -200px;*/
-  top: -20vh;
-  margin: 0 auto;
+  position: absolute;
+  top: 90vh;
+  left: 45vw;
+  bottom: 0;
   width: 180px;
+  height: 50px;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  z-index: 1;
 }
 
 .button1 {
@@ -30,6 +40,5 @@ body {
   font-size: 25px;
   border: none;
   text-align: center;
-  text-decoration: none;
-  display: inline-block
+  text-decoration: none
 }
