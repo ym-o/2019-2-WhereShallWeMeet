@@ -24,15 +24,36 @@
   width: 30vw;
 }
 
+.meeting_info{
+  margin-top: -165%;
+  margin-left: 5%;
+  color: white;
+  font-weight: bold;
+}
+
+.meeting{
+  margin-left:1%;
+  margin-right:5%;
+  height: 5vh;
+  width: 5vw;
+  font-size: 15;
+}
+
+.date{
+  margin-left:1%;
+  height: 5vh;
+  width: 10vw;
+}
+
 .attendent-info {
   line-height: 7vh;
-  margin-top: -167%;
   position:static;
   height: 65vh;
   width: 30vw;
+  color: white;
 }
 
-.table{
+.attendent_table{
   width: 27vw;
   height: 5vh;
   color: white;
@@ -46,7 +67,7 @@
   position: relative;
   margin-top: 10%;
   margin-left: 30%;
-  margin-bottom: 10%;
+  margin-bottom: 5%;
   background-color: black;
 }
 
