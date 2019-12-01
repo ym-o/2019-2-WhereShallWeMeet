@@ -1,4 +1,0 @@
-1. index.js에
-app.use(express.static('public')); 추가
-
-2. public 폴더 만들어서 오류 나는 것들 다 넣기
