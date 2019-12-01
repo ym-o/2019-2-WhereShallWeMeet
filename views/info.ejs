@@ -14,9 +14,9 @@
 
 <body>
   <div class="img-wrapper">
-    <img class="img-responsive" src="./img/header-bg.jpg" alt="">
+    <img class="img-responsive" src="./img/header-bg.jpg" alt="">   
+    <form id="inputInfo" action="/info" method="post" enctype="application/x-www-form-urlencoded">
     <div class="img-overlay">
-      <form id="inputInfo" action="???" method="post" enctype=""
       <div class="meeting_info">
         <label for="meeting">모임 이름:</label>
         <input class="meeting" type="text" name='meeting' id="meeting" autofocus />
@@ -36,7 +36,7 @@
             <tr>
               <td><input type='text' name='name' placeholder='이름' size=7 /></td>
               <td><input type='text' name='address' id='sample6_address2' value='' size=40/></td>
-              <td><input type='submit' class='search2' value='검색' ></td>
+              <td><input type='button' class='search2' value='검색' ></td>
             </tr>
           </thead>
           <tbody id="attendent"></tbody>
@@ -239,10 +239,11 @@
         <img class="img_person_add" src="./img/person_remove.png" width="50" height="50">
       </button>
       <br />
-      <button class="btn" type="button" onclick="location.href='midmap'">
+      <input type="submit" id="mysubmit" class="btn">
         어디서
       </button>
     </div>
+    </form>
   </div>
 
 </body>
