@@ -36,7 +36,7 @@ app.listen(port, function() {
 
 // main.html - 메인 페이지
 app.get('/', function(req, res) {
-  fs.readFile('main.html', function(error, data) {
+  fs.readFile('main.ejs', function(error, data) {
     if (error) {
       console.log(error);
     } else {
@@ -55,7 +55,7 @@ app.get('/', function(req, res) {
 
 // info.html - 참석자 정보 입력 페이지
 app.get('/info', function(req, res) {
-  fs.readFile('info.html', function(error, data) {
+  fs.readFile('info.ejs', function(error, data) {
     if (error) {
       console.log(error);
     } else {
