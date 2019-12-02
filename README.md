@@ -99,9 +99,12 @@ private key를 생성하려면 [puttyGen](https://www.puttygen.com/)이 필요�
 해당 페이지를 참고하여 코딩을 진행하자
 ### 5. Database 사용
 DB 접속하는법 
-1. cmd에서 mysql.exe가 있는 폴더로 이동 후
+1. AWS-RDS에서 사용하고자 하는 Database를 작업이 다음과 같이 사용가능 상태여야 한다.(중지되어있다면 작업->시작을 해주면 된다.)
+![](https://github.com/jisoo449/where_shall_we_meet/blob/master/readmeimg/DB접속3.PNG)
+<br/><br/> 
+2. cmd에서 mysql.exe가 있는 폴더로 이동 후
 ![](https://github.com/jisoo449/where_shall_we_meet/blob/master/readmeimg/DB접속1.PNG)
 <br/><br/> 
-2. mysql -u jisoo449 --host whereshallwemeet-db.cxotycrbhaji.ap-northeast-2.rds.amazonaws.com -P 3306 -p
+3. mysql -u jisoo449 --host whereshallwemeet-db.cxotycrbhaji.ap-northeast-2.rds.amazonaws.com -P 3306 -p
    를 입력하면 비밀번호 요청이 뜨고 비밀번호를 입력하면 다음 사진처럼 접속된다.
 ![](https://github.com/jisoo449/where_shall_we_meet/blob/master/readmeimg/DB접속2.PNG)
