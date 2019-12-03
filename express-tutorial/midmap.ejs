@@ -9,10 +9,19 @@
 </head>
 
 <body>
+  <div class="cate">
+    <nav>
+      <ul id="category">
+        <li>
+          <a>어디서 뭐하지?</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
   <div id="map" class="map_div"></div>
   <div class="btn1">
     <button class="button1" onclick="location.href='place'">
-      뭐하지
+      뭐하지?
     </button>
   </div>
 
@@ -36,6 +45,8 @@
     personName[0] = '박지수';
     personName[1] = '문경환';
     personName[2] = '지정환';
+
+    var bounds = new kakao.maps.LatLngBounds();
 
     function initMap() {
 
@@ -74,6 +85,7 @@
         }
       ];
 
+
       // 마커 이미지의 이미지 주소입니다
       var imageSrc = "http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
 
@@ -97,6 +109,8 @@
           position: positions[i].latlng, // 마커를 표시할 위치
           title: positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
         });
+
+        bounds.extend(positions[i].latlng);
       }
 
       // 지도에 표시할 원을 생성합니다
@@ -110,6 +124,19 @@
         fillColor: 'rgb(255, 55, 100)', // 채우기 색깔입니다
         fillOpacity: 0.2 // 채우기 불투명도 입니다
       });
+
+      var iwContent =
+        '<div style="padding:5px; width:100px;">중간지점<br /><a href="https://map.kakao.com/link/to/mid,'+middle[0]+','+middle[1]+'" style="color:blue" target="_blank">길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+        iwPosition = new kakao.maps.LatLng(middle[0], middle[1]); //인포윈도우 표시 위치입니다
+
+      // 인포윈도우를 생성합니다
+      var infowindow = new kakao.maps.InfoWindow({
+        position: iwPosition,
+        content: iwContent
+      });
+
+      // 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
+      infowindow.open(map, marker_mid);
 
       // 지도에 원을 표시합니다
       circle.setMap(map);
