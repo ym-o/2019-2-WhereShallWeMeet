@@ -144,7 +144,6 @@ input.search2 {
   margin-top: 15px;
 }
 
-
 input.search3 {
   margin-left: 5px;
   width: 60px;
@@ -232,7 +231,7 @@ input.search9 {
 .modify {
   margin-top: 10px;
   margin-bottom: 10px;
-  top:50px;
+  top: 50px;
   z-index: 1;
 }
 
@@ -262,16 +261,18 @@ img {
 }
 
 .btn {
-  border-radius:10px;
+  border-radius: 10px;
   width: 150px;
   height: 60px;
   font-family: 'Jua', sans-serif;
   font-size: 30px;
-  color: white;
-  background-color: rgb(255, 55, 100);
+  color: rgb(255, 255, 255);
+  background-color: rgba(255, 55, 100, 0.9);
   border: none;
+  text-align: center;
 }
+
 .btn:hover {
   color: rgb(255, 55, 100);
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.9);
 }

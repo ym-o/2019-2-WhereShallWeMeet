@@ -1,6 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Calistoga|Jua&display=swap&subset=korean');
+@import url('https://fonts.googleapis.com/css?family=Solway|Calistoga|Jua&display=swap&subset=korean');
 
-html,
 body {
   margin: 0;
   padding: 0;
@@ -140,31 +139,34 @@ nav li a:hover {
   background-color: rgb(45, 62, 80);
 }
 
+.btn2 {
+  position: absolute;
+  top: 83vh;
+  left: 46vw;
+  bottom: 0;
+  width: 150px;
+  height: 60px;
+  margin: 0px 0 30px 0px;
+  padding: 0;
+  z-index: 1;
+}
+
 .save {
   display: inline-block;
   border-radius: 10px;
-  width: 180px;
-  height: 50px;
-  margin: 0 auto;
-  background-color: rgb(255, 55, 100);
-  color: rgb(255, 255, 255);
+  width: 150px;
+  height: 60px;
   font-family: 'Calistoga', sans-serif;
   font-size: 30px;
+  color: rgb(255, 255, 255);
+  background-color: rgba(255, 55, 100, 0.9);
   border: none;
   text-align: center;
   text-decoration: none;
 }
-
-.btn2 {
-  position: absolute;
-  top: 90vh;
-  left: 45vw;
-  bottom: 0;
-  width: 180px;
-  height: 50px;
-  margin: 0px 0 30px 0px;
-  padding: 0;
-  z-index: 1;
+.save:hover{
+  color: rgb(255, 55, 100);
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 .map_div {
@@ -229,18 +231,6 @@ nav li a:hover {
   border: 2px solid rgb(45, 62, 80);
   text-align: center;
   text-decoration: none;
-}
-
-.btn2 {
-  position: absolute;
-  top: 90vh;
-  left: 45vw;
-  bottom: 0;
-  width: 180px;
-  height: 50px;
-  margin: 0px 0 30px 0px;
-  padding: 0;
-  z-index: 1;
 }
 
 #place_name {
