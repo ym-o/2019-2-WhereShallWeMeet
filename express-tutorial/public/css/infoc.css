@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css?family=Solway|Calistoga|Jua&display=swap&subset=korean');
+
+body {
+  background-image: url('/img/header-bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.img-wrapper {
+  width: 100vw;
+  height: 100vh;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.img-overlay {
+  display: inline-block;
+  background-color: rgb(45, 62, 80, 0.9);
+  /*
+  position: relative;
+  top: 5%;
+  margin:auto;
+  */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 85vh;
+  display: block;
+}
+
+.img-overlay:before {
+  content: ' ';
+  display: block;
+  /* adjust 'height' to position overlay content vertically */
+  height: 100vh;
+  width: 30vw;
+}
+
+.meeting_info {
+  top: 50%;
+  left: 50%;
+  margin-top: -98vh;
+  color: white;
+  font-family: 'Jua', sans-serif;
+  font-size: 30px;
+}
+
+.meeting {
+  font-family: 'Jua', sans-serif;
+  font-size: 20px;
+  margin-left: 1%;
+  margin-right: 4%;
+  height: 40px;
+  width: 120px;
+}
+
+.date {
+  font-family: 'Jua', sans-serif;
+  font-size: 20px;
+  margin-left: 1%;
+  height: 40px;
+  width: 180px;
+}
+
+hr {
+  margin-top: 15px;
+  width: 98%;
+}
+
+.attendent-info {
+  height: 57vh;
+  width: 100%;
+  color: white;
+  font-family: 'Jua', sans-serif;
+  font-size: 30px;
+}
+
+.attendent_table {
+  width: 27vw;
+  height: 5vh;
+  color: white;
+}
+
+th.tname {
+  font-size: 30px;
+  width: 150px;
+  height: 30px;
+  text-align: center;
+  margin-right: 5px;
+}
+
+th.taddr {
+  font-size: 30px;
+  width: 300px;
+  height: 30px;
+  text-align: center;
+  margin-left: 5px;
+}
+
+.sname {
+  font-family: 'Jua', sans-serif;
+  font-size: 20px;
+  width: 150px;
+  height: 30px;
+  text-align: center;
+  margin-right: 5px;
+  margin-top: 15px;
+}
+
+.saddr {
+  font-family: 'Jua', sans-serif;
+  font-size: 20px;
+  width: 300px;
+  height: 30px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 15px;
+}
+
+input.search1 {
+  margin-left: 5px;
+  width: 60px;
+  height: 36px;
+  background-color: rgb(255, 55, 100);
+  color: white;
+  font-family: 'Jua', sans-serif;
+  font-size: 20px;
+  border: none;
+  margin-top: 15px;
+}
+
+input.search2 {
+  margin-left: 5px;
+  width: 60px;
+  height: 36px;
+  background-color: rgb(255, 55, 100);
+  color: white;
+  font-family: 'Jua', sans-serif;
+  font-size: 20px;
+  border: none;
+  margin-top: 15px;
+}
+
+
+input.search3 {
+  margin-left: 5px;
+  width: 60px;
+  height: 36px;
+  background-color: rgb(255, 55, 100);
+  color: white;
+  font-family: 'Jua', sans-serif;
+  font-size: 20px;
+  border: none;
+  margin-top: 15px;
+}
+
+input.search4 {
+  margin-left: 5px;
+  width: 60px;
+  height: 36px;
+  background-color: rgb(255, 55, 100);
+  color: white;
+  font-family: 'Jua', sans-serif;
+  font-size: 20px;
+  border: none;
+  margin-top: 15px;
+}
+
+input.search5 {
+  margin-left: 5px;
+  width: 60px;
+  height: 36px;
+  background-color: rgb(255, 55, 100);
+  color: white;
+  font-family: 'Jua', sans-serif;
+  font-size: 20px;
+  border: none;
+  margin-top: 15px;
+}
+
+input.search6 {
+  margin-left: 5px;
+  width: 60px;
+  height: 36px;
+  background-color: rgb(255, 55, 100);
+  color: white;
+  font-family: 'Jua', sans-serif;
+  font-size: 20px;
+  border: none;
+  margin-top: 15px;
+}
+
+input.search7 {
+  margin-left: 5px;
+  width: 60px;
+  height: 36px;
+  background-color: rgb(255, 55, 100);
+  color: white;
+  font-family: 'Jua', sans-serif;
+  font-size: 20px;
+  border: none;
+  margin-top: 15px;
+}
+
+input.search8 {
+  margin-left: 5px;
+  width: 60px;
+  height: 36px;
+  background-color: rgb(255, 55, 100);
+  color: white;
+  font-family: 'Jua', sans-serif;
+  font-size: 20px;
+  border: none;
+  margin-top: 15px;
+}
+
+input.search9 {
+  margin-left: 5px;
+  width: 60px;
+  height: 36px;
+  background-color: rgb(255, 55, 100);
+  color: white;
+  font-family: 'Jua', sans-serif;
+  font-size: 20px;
+  border: none;
+  margin-top: 15px;
+}
+
+.modify {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  top:50px;
+  z-index: 1;
+}
+
+.btn-person_add {
+  width: 50px;
+  height: 50px;
+  border: none;
+  padding: 0;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0);
+  margin-right: 20px;
+}
+
+.btn-person_remove {
+  width: 50px;
+  height: 50px;
+  border: none;
+  padding: 0;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0);
+  margin-left: 20px;
+}
+
+img {
+  width: 50px;
+  height: 50px;
+}
+
+.btn {
+  border-radius:10px;
+  width: 150px;
+  height: 60px;
+  font-family: 'Jua', sans-serif;
+  font-size: 30px;
+  color: white;
+  background-color: rgb(255, 55, 100);
+  border: none;
+}
+.btn:hover {
+  color: rgb(255, 55, 100);
+  background-color: white;
+}
