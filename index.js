@@ -3,12 +3,13 @@ var fs = require('fs'); // 파일 로드 사용
 var bodyParser = require('body-parser');
 var app = express();
 
-app.use(bodyParser.urlencoded({extended : true}));
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
 var port = 8080;
-
 
 //DATABASE SETTING
 var mysql = require('mysql');
@@ -71,10 +72,12 @@ app.get('/info', function(req, res) {
 app.post('/info', function(req, res) {
   var body = req.body;
   var names = body.name[0];
-  for(var i=1;i<8;++i){
-    if(!body.name[i])
+  for (var i = 1; i < 8; ++i) {
+    if (!body.name[i]){
+      names += " *";
       break;
-    names += "," + body.name[i];
+    }
+    names += " | " + body.name[i];
   }
   console.log(names);
   connection.query('insert into test(meeting,day,attendees) values(?,?,?)', [body.meet, body.date, names],
@@ -89,7 +92,7 @@ app.post('/info', function(req, res) {
 
 // midmap.html - 중간 지점 표시 페이지
 app.get('/mid', function(req, res) {
-  fs.readFile('midmap.html', function(error, data) {
+  fs.readFile('midmap.ejs', function(error, data) {
     if (error) {
       console.log(error);
     } else {
@@ -103,7 +106,7 @@ app.get('/mid', function(req, res) {
 
 // places.html - 장소 및 활동 추천 페이지
 app.get('/place', function(req, res) {
-  fs.readFile('places.html', function(error, data) {
+  fs.readFile('places.ejs', function(error, data) {
     if (error) {
       console.log(error);
     } else {
@@ -115,16 +118,31 @@ app.get('/place', function(req, res) {
   });
 });
 
+app.post('/place', function(req, res) {
+  var body = req.body;
+  for (var i = 1; i < 11; ++i) {
+    if (body.selectPlace[i - 1]) {
+      names = body.selectPlace[i - 1];
+      console.log(names);
+      var command = 'update test set place' + i + '=' + "'" + names + "'" + ' order by id DESC LIMIT 1';
+      console.log(command);
+      connection.query(command);
+    }
+  }
+  res.redirect('/history');
+});
+
 // history.html - history 페이지
+app.set('view engine','ejs');
+
 app.get('/history', function(req, res) {
-  fs.readFile('history.html', function(error, data) {
-    if (error) {
-      console.log(error);
-    } else {
-      res.writeHead(200, {
-        'Content-Type': 'text/html'
-      });
-      res.end(data);
+  var sql = 'SELECT * FROM test';
+  connection.query(sql,function(err,rows,fields){
+    if (err) {
+      console.log(err);
+    }else{
+      console.log(rows);
+      res.render('history.ejs',{rows: rows});
     }
   });
 });
