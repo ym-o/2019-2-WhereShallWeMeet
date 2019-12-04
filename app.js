@@ -29,7 +29,7 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/', routes.index);
+app.get('/', require('./routes/main').get);
 app.get('/users', user.list);
 
 app.get('/test', require('./routes/test').get);
@@ -39,8 +39,9 @@ app.get('/info', require('./routes/info').get);
 app.post('/info', require('./routes/info').post);
 
 app.get('/midmap', require('./routes/midmap').get);
+app.post('/midmap', require('./routes/midmap').post);
 app.get('/places', require('./routes/places').get);
-
+app.get('/history',require('./routes/history').get);
 
 
 app.use(function(req,res){

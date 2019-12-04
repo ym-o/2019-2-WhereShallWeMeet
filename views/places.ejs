@@ -38,13 +38,13 @@
       </div>
       <div class="xbutton">
         <button type="button" class="reset" id="reset">
-          RESET
+          reset
         </button>
       </div>
     </div>
 
     <div class="btn2">
-      <input type="submit" class="save" value="SAVE" />
+      <input type="submit" class="save" value="save" />
     </div>
     <!--
     <div class="btn2" onclick="location.href='history'">
@@ -281,7 +281,7 @@
             $("#place_name").append('<li class=' + name + '><div class="pname"><input type=""' + name +
                         '</div></li>');
             */
-            $("#name_list").append('<div class="pname"><input type="checkbox" name="nnn" value="' + name + '" checked="checked"/>' + name + '</div>');
+            $("#name_list").append('<div class="pname"><input type="checkbox" name="selectPlace" value="' + name + '" checked="checked"/>' + name + '</div>');
             /**************************************************************************/
             /*  name이 찜한 장소 이름  -  배열로 구성되어 DB로 넘어가되,
                                         reset 버튼을 클릭하면 초기화    */
