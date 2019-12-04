@@ -8,6 +8,6 @@ exports.get = function(req, res){
 
 
 exports.post = function(req, res){
-		console.log(req.body);
-		res.render('test');
+		console.log(req.body.user_id);
+		res.render('index', { title: 'Express' , name:req.body.user_id});
 };
