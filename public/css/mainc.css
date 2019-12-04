@@ -125,7 +125,8 @@ body {
 
 .modal-wrapper.close {
   visibility: hidden;
-  transition: all 0.1s ease-out;
+    opacity: 0;
+  transition: all 0.25s ease-in-out;
 }
 
 .modal {
@@ -160,15 +161,21 @@ body {
 
 .typing-txt {
   text-align: center;
-  display: none;
+
 }
 
 ul {
   list-style: none;
 }
 
+.typing-txt ul li{
+  margin-top: 15px;
+  font-family: 'Gaegu', serif;
+  font-size: 25px;
+  text-align: center;
+}
+
 .typing ul li{
-/*  font-family: 'Do Hyeon', sans-serif;*/
   margin-top: 15px;
   font-family: 'Gaegu', serif;
   font-size: 25px;
@@ -182,6 +189,8 @@ ul {
   animation-iteration-count: infinite;
   text-align: center;
 }
+
+
 
 @keyframes cursor {
   0% {
