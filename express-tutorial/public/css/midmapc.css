@@ -75,3 +75,11 @@ nav li a {
   color: rgb(255, 55, 100);
   background-color: rgba(255, 255, 255, 0.9);
 }
+
+.infow {
+font-family: 'Jua', sans-serif;
+  font-size: 20px;
+  text-align: center;
+  padding:5px;
+  width:150px;
+}

@@ -15,7 +15,6 @@ nav {
   border-collapse: collapse;
   table-layout: fixed;
   border: none;
-
 }
 
 nav ul #category {
@@ -156,7 +155,8 @@ nav li a:hover {
   border-radius: 10px;
   width: 150px;
   height: 60px;
-  font-family: 'Calistoga', sans-serif;
+  font-family: 'Solway', sans-serif;
+  font-weight: bold;
   font-size: 30px;
   color: rgb(255, 255, 255);
   background-color: rgba(255, 55, 100, 0.9);
@@ -164,7 +164,8 @@ nav li a:hover {
   text-align: center;
   text-decoration: none;
 }
-.save:hover{
+
+.save:hover {
   color: rgb(255, 55, 100);
   background-color: rgba(255, 255, 255, 0.9);
 }
@@ -226,15 +227,17 @@ nav li a:hover {
   padding: 0;
   background-color: rgba(255, 255, 255, 0);
   color: rgb(45, 62, 80);
-  font-family: 'Calistoga', sans-serif;
+  font-family: 'Solway', sans-serif;
   font-size: 20px;
+  font-weight: bold;
   border: 2px solid rgb(45, 62, 80);
   text-align: center;
   text-decoration: none;
 }
 
-#place_name {
+#name_list {
   font-family: 'Jua', sans-serif;
+  vertical-align: middle;
   text-align: left;
   margin-top: -5px;
 }
