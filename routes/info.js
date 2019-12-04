@@ -8,7 +8,6 @@ exports.get = function(req, res){
 
 
 exports.post = function(req, res){
-	console.log(req.body.name);
 	console.log(req.body.address);
-	res.render('midmap',{adr:req.body.adr,na:req.body,name});
+	res.render('midmap',{name:req.body.name, address:req.body.address});
 };
