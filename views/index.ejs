@@ -5,9 +5,17 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
+  <%
+    var ta=name;
+  %>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
 	<p> name : <%=name%></p>
-	<p> count:<%=count%></p>
   </body>
+  <script>
+    var hi = "<%=ta%>".split(",");
+    //var there=hi[0];//.split(",");
+    document.write("hi"+hi[0]);
+    //document.write("hi"+there[0]+" "+there[1]);
+  </script>
 </html>
