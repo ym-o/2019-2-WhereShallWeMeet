@@ -93,7 +93,7 @@ td{
   background-color: rgb(255, 255, 255);
 }
 
-.no {
+td.no {
   width: 0px;
   font-size: 0px;
   visibility: hidden;
