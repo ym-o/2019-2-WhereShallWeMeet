@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>어디서 뭐하지</title>
+
+  <link href="./css/historyc.css" rel="stylesheet">
+</head>
+
+<body>
+  <div id="jb-container">
+    <div id="jb-header">History</div>
+    <hr />
+    <div id="jb-content">
+      <table class="m_table" id="meet_table" align="left">
+        <thead>
+          <th>번호</th>
+          <th>모임 날짜</th>
+          <th>모임 이름</th>
+          <th>자세히</th>
+          <tr>
+            <td><a id="meet_num1">01</a></td>
+            <td><a id="meet_date1">2019-12-25</a></td>
+            <td><a id="meet_name1">초등학교 동창 모임</a></td>
+            <td><button class="more" id="meet1">more</button></td>
+          </tr>
+          <tr>
+            <td><a id="meet_num2">02</a></td>
+            <td><a id="meet_date2">2020-01-01</a></td>
+            <td><a id="meet_name2">동국대학교 컴퓨터공학과 학생회</a></td>
+            <td><button class="more" id="meet2">more</button></td>
+          </tr>
+          <tr>
+            <td><a id="meet_num3">03</a></td>
+            <td><a id="meet_date3">2019-12-31</a></td>
+            <td><a id="meet_name3">동국대학교 공과대학 풍물패 한소리 송년회</a></td>
+            <td><button class="more" id="meet3">more</button></td>
+          </tr>
+        </thead>
+        <tbody id="meet_body"></tbody>
+      </table>
+    </div>
+    <hr />
+    <button class="go_main" onclick="location.href='/'">
+      main
+    </button>
+  </div>
+
+  <!-- Modal -->
+  <div class="more_full">
+    <div class="more_box">
+      <div class="out">
+        <button class="x"><img src="./img/x.png" /> </button>
+      </div>
+
+      <div class="details">
+        <!-- 내용 -->
+      </div>
+
+      <div class="buttons">
+        <button class="de_btn" id="meet_remove1">
+          삭제
+        </button>
+        <button class="de_btn" id="meet_share1">
+          공유
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#meet1').on('click', function() {
+        $('.more_full').toggleClass('open');
+        return false;
+      });
+    });
+    $(document).ready(function() {
+      $('.x').on('click', function() {
+        $('.more_full').toggleClass('close');
+        return false;
+      });
+    });
+  </script>
+</body>
+
+</html>

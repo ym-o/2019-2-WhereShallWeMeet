@@ -53,14 +53,17 @@
       </button>
     </div>
   -->
-
+    <%
+      var m0=middle0;
+      var m1=middle1;
+    %>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1c08979aea618b39c818445498c12937&libraries=services"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script>
       // 마커를 담을 배열입니다
       var middle = new Array();
-      middle[0] = 37.566826;
-      middle[1] = 126.9786567;
+      middle[0] = "<%=m0%>";//37.566826;
+      middle[1] = "<%=m1%>";//126.9786567;
 
       // 마커를 클릭했을 때 해당 장소의 상세정보를 보여줄 커스텀오버레이입니다
       var placeOverlay = new kakao.maps.CustomOverlay({

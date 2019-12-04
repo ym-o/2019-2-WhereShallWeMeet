@@ -15,7 +15,8 @@
   %>
   <div id="map" class="map_div"></div>
   <div class="btn1">
-    <button class="button1" onclick="location.href='/midmap'">
+
+    <button class="button1" onclick="ocl()">
       뭐하지
     </button>
   </div>
@@ -37,6 +38,43 @@
     middle[1]=0;
 
     var bounds = new kakao.maps.LatLngBounds();
+
+    function ocl(){
+         var form = document.createElement("form");
+
+         form.setAttribute("charset", "UTF-8");
+
+         form.setAttribute("method", "Post");  //Post 방식
+
+         form.setAttribute("action", "http://localhost:8080/midmap"); //요청 보낼 주소
+
+
+         var hiddenField = document.createElement("input");
+
+         hiddenField.setAttribute("type", "hidden");
+
+         hiddenField.setAttribute("name", "m0");
+
+         hiddenField.setAttribute("value", middle[0]);
+
+         form.appendChild(hiddenField);
+
+         hiddenField = document.createElement("input");
+
+         hiddenField.setAttribute("type", "hidden");
+
+         hiddenField.setAttribute("name", "m1");
+
+         hiddenField.setAttribute("value", middle[1]);
+
+         form.appendChild(hiddenField);
+
+
+
+         document.body.appendChild(form);
+
+         form.submit();
+    }
 
     function first()
     {
@@ -79,6 +117,7 @@
                   if(counter==total){
                       middle[0]/=total;
                       middle[1]/=total;
+                      console.log(middle[0]);
 
                       mapOption = {
                         center: new kakao.maps.LatLng(middle[0], middle[1]), // 지도의 중심좌표
