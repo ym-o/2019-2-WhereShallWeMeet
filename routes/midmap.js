@@ -1,5 +1,5 @@
 
 exports.get = function(req, res){
-    res.render('midmap', { });
+    res.render('places', {});
 
 };
