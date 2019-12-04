@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>어디서 뭐하지</title>
+
+  <link href="./css/historyc.css" rel="stylesheet">
+</head>
+
+<body>
+  <div id="jb-container">
+    <div id="jb-header">History</div>
+    <hr class="line" />
+    <div id="jb-content">
+      <table class="m_table" id="meet_table" align="left">
+        <thead>
+          <th>번호</th>
+          <th></th>
+          <th>모임 날짜</th>
+          <th></th>
+          <th>모임 이름</th>
+          <th>자세히</th>
+        </thead>
+        <tr>
+          <tbody id="meet_body"></tbody>
+      </table>
+    </div>
+    <hr class="line" />
+    <button class="go_main" onclick="location.href='/'">
+      main
+    </button>
+  </div>
+
+  <script>
+    //테이블의 row개수 구하기
+    var rowCount = 0;
+    var db = '<%- JSON.stringify(rows) %>';
+    var f = "*";
+    for (var i = 0; i < db.length; i++) {
+      if (db[i] == f) {
+        rowCount += 1;
+      }
+    }
+    db = db.replace(/"/g, ""); //따옴표 없애기
+
+    for (var i = 1; i <= rowCount; ++i) {
+      var meetDate = 'meet_date'.concat(i);
+      var meetName = 'meet_name'.concat(i);
+      var meetButton = 'meet'.concat(i);
+      var meetAttend = 'meet_attend'.concat(i);
+      var meetPlaces = 'meet_places'.concat(i);
+
+      var meet_body = document.getElementById('meet_body');
+      var row = meet_body.insertRow(meet_body.rows.length);
+
+      var cell1 = row.insertCell(0);
+      var cell2 = row.insertCell(1);
+      var cell3 = row.insertCell(2);
+      var cell4 = row.insertCell(3);
+      var cell5 = row.insertCell(4);
+      var cell6 = row.insertCell(5);
+
+      cell1.innerHTML = "<a id='meet_num'>" + i + "</a>";
+      cell2.innerHTML = '<a class="no" id="meet_attend"></a>';
+      cell3.innerHTML = "<label id='meet_date' />";
+      cell4.innerHTML = '<a class="no" id="meet_places"></a>';
+      cell5.innerHTML = '<label id="meet_name" />';
+      cell6.innerHTML = '<button class="more" id="meet">more</button>';
+
+      document.getElementById('meet_date').id = meetDate;
+      document.getElementById('meet_name').id = meetName;
+      document.getElementById('meet').id = meetButton;
+      document.getElementById('meet_attend').id = meetAttend;
+      document.getElementById('meet_places').id = meetPlaces;
+
+      var row = db.split('},');
+      var str = row[i - 1].split(',');
+      var mName = str[1].split(':'); //두번째: :를 기준으로 항목별로 나눠진 부분에서 항목 이름과 값을 분류
+      document.getElementById(meetName).innerHTML = mName[1];
+      var mDate = str[2].split(':');
+      mDate[1] = mDate[1].substring(0, 10);
+      document.getElementById(meetDate).innerHTML = mDate[1];
+      var mAttendees = str[3].split(':');
+      document.getElementById(meetAttend).innerHTML = mAttendees[1];
+      var mPlace = "";
+      for (var j = 4; j <= 13; j++) {
+        var temp = str[j].split(':');
+        if (temp[1][0] != "n") {
+          mPlace += temp[1];
+          mPlace += " / ";
+        }
+      }
+      document.getElementById(meetPlaces).innerHTML = mPlace;
+    }
+  </script>
+
+  <!-- Modal -->
+  <div class="more_full">
+    <div class="more_box">
+      <div class="out">
+        <button class="x"><img src="./img/x.png" /> </button>
+      </div>
+
+      <div class="details">
+        <!-- 내용 -->
+        <div class="left">
+          <div class="la">
+            <label>모임 이름</label>
+          </div>
+          <hr />
+          <div class="la">
+            <label>모임 날짜</label>
+          </div>
+          <hr />
+          <div class="la_name">
+            <label>참석자 이름</label>
+          </div>
+          <hr />
+          <div class="la_places">
+            <label>모임 장소</label>
+          </div>
+        </div>
+        <div class="middle">
+        </div>
+        <div class="right" id="meet_more">
+          <div class="la">
+            <label id="pname">모임 이름</label>
+          </div>
+          <hr />
+          <div class="la">
+            <label id="pdate">모임 날짜</label>
+          </div>
+          <hr />
+          <div class="la_name">
+            <label id="pattend">참석자 이름</label>
+          </div>
+          <hr />
+          <div class="la_places">
+            <label id="pplaces">모임 장소</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button class="de_btn" id="meet_remove1">
+          삭제
+        </button>
+        <button class="de_btn" id="meet_share1" button onclick="CopyLink()">공유 </button>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script>
+    $('#meet1').on('click', function() {
+      $('.more_full').toggleClass('open');
+      var tname = document.getElementById('meet_name1').innerHTML;
+      document.getElementById('pname').innerHTML = tname;
+      var tdate = document.getElementById('meet_date1').innerHTML;
+      document.getElementById('pdate').innerHTML = tdate;
+      var tattend = document.getElementById('meet_attend1').innerHTML;
+      tattend = tattend.split('*');
+      document.getElementById('pattend').innerHTML = tattend[0];
+      var tplace = document.getElementById('meet_places1').innerHTML;
+      document.getElementById('pplaces').innerHTML = tplace;
+      return false;
+    });
+    $('#meet2').on('click', function() {
+      $('.more_full').toggleClass('open');
+      var tname = document.getElementById('meet_name2').innerHTML;
+      document.getElementById('pname').innerHTML = tname;
+      var tdate = document.getElementById('meet_date2').innerHTML;
+      document.getElementById('pdate').innerHTML = tdate;
+      var tattend = document.getElementById('meet_attend2').innerHTML;
+      tattend = tattend.split('*');
+      document.getElementById('pattend').innerHTML = tattend[0];
+      var tplace1 = document.getElementById('meet_places2').innerHTML;
+      document.getElementById('pplaces').innerHTML = tplace1;
+      return false;
+    });
+    $('#meet3').on('click', function() {
+      $('.more_full').toggleClass('open');
+      var tname = document.getElementById('meet_name3').innerHTML;
+      document.getElementById('pname').innerHTML = tname;
+      var tdate = document.getElementById('meet_date3').innerHTML;
+      document.getElementById('pdate').innerHTML = tdate;
+      var tattend = document.getElementById('meet_attend3').innerHTML;
+      tattend = tattend.split('*');
+      document.getElementById('pattend').innerHTML = tattend[0];
+      var tplace1 = document.getElementById('meet_places3').innerHTML;
+      document.getElementById('pplaces').innerHTML = tplace1;
+      return false;
+    });
+    $('#meet4').on('click', function() {
+      $('.more_full').toggleClass('open');
+      var tname = document.getElementById('meet_name4').innerHTML;
+      document.getElementById('pname').innerHTML = tname;
+      var tdate = document.getElementById('meet_date4').innerHTML;
+      document.getElementById('pdate').innerHTML = tdate;
+      var tattend = document.getElementById('meet_attend4').innerHTML;
+      tattend = tattend.split('*');
+      document.getElementById('pattend').innerHTML = tattend[0];
+      var tplace1 = document.getElementById('meet_places4').innerHTML;
+      document.getElementById('pplaces').innerHTML = tplace1;
+      return false;
+    });
+    $('#meet5').on('click', function() {
+      $('.more_full').toggleClass('open');
+      var tname = document.getElementById('meet_name5').innerHTML;
+      document.getElementById('pname').innerHTML = tname;
+      var tdate = document.getElementById('meet_date5').innerHTML;
+      document.getElementById('pdate').innerHTML = tdate;
+      var tattend = document.getElementById('meet_attend5').innerHTML;
+      tattend = tattend.split('*');
+      document.getElementById('pattend').innerHTML = tattend[0];
+      var tplace1 = document.getElementById('meet_places5').innerHTML;
+      document.getElementById('pplaces').innerHTML = tplace1;
+      return false;
+    });
+    $('#meet6').on('click', function() {
+      $('.more_full').toggleClass('open');
+      var tname = document.getElementById('meet_name6').innerHTML;
+      document.getElementById('pname').innerHTML = tname;
+      var tdate = document.getElementById('meet_date6').innerHTML;
+      document.getElementById('pdate').innerHTML = tdate;
+      var tattend = document.getElementById('meet_attend6').innerHTML;
+      tattend = tattend.split('*');
+      document.getElementById('pattend').innerHTML = tattend[0];
+      var tplace1 = document.getElementById('meet_places6').innerHTML;
+      document.getElementById('pplaces').innerHTML = tplace1;
+      return false;
+    });
+    $('#meet7').on('click', function() {
+      $('.more_full').toggleClass('open');
+      var tname = document.getElementById('meet_name7').innerHTML;
+      document.getElementById('pname').innerHTML = tname;
+      var tdate = document.getElementById('meet_date7').innerHTML;
+      document.getElementById('pdate').innerHTML = tdate;
+      var tattend = document.getElementById('meet_attend7').innerHTML;
+      tattend = tattend.split('*');
+      document.getElementById('pattend').innerHTML = tattend[0];
+      var tplace1 = document.getElementById('meet_places7').innerHTML;
+      document.getElementById('pplaces').innerHTML = tplace1;
+      return false;
+    });
+    $('#meet8').on('click', function() {
+      $('.more_full').toggleClass('open');
+      var tname = document.getElementById('meet_name8').innerHTML;
+      document.getElementById('pname').innerHTML = tname;
+      var tdate = document.getElementById('meet_date8').innerHTML;
+      document.getElementById('pdate').innerHTML = tdate;
+      var tattend = document.getElementById('meet_attend8').innerHTML;
+      tattend = tattend.split('*');
+      document.getElementById('pattend').innerHTML = tattend[0];
+      var tplace1 = document.getElementById('meet_places8').innerHTML;
+      document.getElementById('pplaces').innerHTML = tplace1;
+      return false;
+    });
+    $('#meet9').on('click', function() {
+      $('.more_full').toggleClass('open');
+      var tname = document.getElementById('meet_name9').innerHTML;
+      document.getElementById('pname').innerHTML = tname;
+      var tdate = document.getElementById('meet_date9').innerHTML;
+      document.getElementById('pdate').innerHTML = tdate;
+      var tattend = document.getElementById('meet_attend9').innerHTML;
+      tattend = tattend.split('*');
+      document.getElementById('pattend').innerHTML = tattend[0];
+      var tplace1 = document.getElementById('meet_places9').innerHTML;
+      document.getElementById('pplaces').innerHTML = tplace1;
+      return false;
+    });
+    $('#meet10').on('click', function() {
+      $('.more_full').toggleClass('open');
+      var tname = document.getElementById('meet_name10').innerHTML;
+      document.getElementById('pname').innerHTML = tname;
+      var tdate = document.getElementById('meet_date10').innerHTML;
+      document.getElementById('pdate').innerHTML = tdate;
+      var tattend = document.getElementById('meet_attend10').innerHTML;
+      tattend = tattend.split('*');
+      document.getElementById('pattend').innerHTML = tattend[0];
+      var tplace1 = document.getElementById('meet_places10').innerHTML;
+      document.getElementById('pplaces').innerHTML = tplace1;
+      return false;
+    });
+
+    function CopyLink() {
+
+      copyTextToClipboard(location.href);
+
+    }
+
+    function copyTextToClipboard(text) {
+
+      alert('클립보드에 복사 됬습니다.');
+      var textArea = document.createElement("textarea");
+
+
+      textArea.style.position = 'fixed';
+
+      textArea.style.top = 0;
+      textArea.style.left = 0;
+      textArea.style.width = '2em';
+      textArea.style.height = '2em';
+      textArea.style.padding = 0;
+      textArea.style.border = 'none';
+      textArea.style.outline = 'none';
+      textArea.style.boxShadow = 'none';
+      textArea.style.background = 'transparent';
+      textArea.value = text;
+      document.body.appendChild(textArea);
+      textArea.select();
+      try {
+        var successful = document.execCommand('copy');
+        var msg = successful ? 'successful' : 'unsuccessful';
+        console.log('Copying text command was ' + msg);
+      } catch (err) {
+        console.log('Oops, unable to copy');
+      }
+      document.body.removeChild(textArea);
+    }
+
+
+
+    $('.x').on('click', function() {
+      $('.more_full').toggleClass('close');
+      return false;
+    });
+  </script>
+
+  </script>
+</body>
+
+</html>

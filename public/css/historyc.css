@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css?family=Solway|Calistoga|Jua&display=swap&subset=korean');
+
+body {
+  background-image: url('/img/header-bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+
+#jb-container {
+  width: 50%;
+  height: 95vh;
+  margin: 10px auto;
+  padding: 5px 10px 10px 10px;
+  background-color: rgba(45, 62, 80, 0.95);
+  vertical-align: middle;
+  text-align: center;
+}
+
+#jb-header {
+  height: 60px;
+  font-family: 'Solway', sans-serif;
+  font-size: 50px;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+
+hr.line {
+  border: 1px solid white;
+}
+
+#jb-content {
+  height: 75vh;
+  margin: 10px 5px 10px 5px;
+  padding: 0px 5px 0px 5px;
+  overflow-y: auto;
+}
+
+.m_table {
+  width: 100%;
+  font-family: 'Jua', sans-serif;
+  font-size: 25px;
+  color: rgb(255, 255, 255);
+  margin-top: 5px;
+  padding: 10px;
+}
+th {
+  font-weight: lighter;
+  font-size: 30px;
+}
+
+.list_contents {
+
+}
+
+td{
+  padding: 10px 10px 10px 10px;
+}
+
+.go_main {
+  margin-top: 10px;
+  border-radius: 10px;
+  width: 150px;
+  height: 60px;
+  font-family: 'Solway', sans-serif;
+  font-size: 30px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(255, 55, 100);
+  border: none;
+  text-align: center;
+}
+
+.go_main:hover {
+  color: rgb(255, 55, 100);
+  background-color: rgb(255, 255, 255);
+}
+
+.more {
+  width: 80px;
+  height: 30px;
+  border-radius: 5px;
+  font-family: 'Solway', sans-serif;
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(255, 55, 100);
+  border: none;
+  text-align: center;
+}
+
+.more:hover {
+  color: rgb(255, 55, 100);
+  background-color: rgb(255, 255, 255);
+}
+
+.no {
+  width: 0px;
+  font-size: 0px;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.more_full {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.25s ease-in-out;
+  z-index: 2;
+}
+
+.more_full.open {
+  opacity: 1;
+  visibility: visible;
+  z-index: 2;
+}
+
+.more_full.close {
+  opacity: 0;
+  transition: all 0.25s ease-in-out;
+}
+
+.more_box {
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(255, 55, 100);
+  z-index: 2;
+  width: 45%;
+  height: 75vh;
+  display: inline-block;
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.more_full.open .more_box {
+  margin-top: 0px;
+  opacity: 1;
+}
+
+.details {
+  border: 2px solid rgb(255, 55, 100);
+  width: 86%;
+  height: 80%;
+  margin: 10px 7% 10px 7%;
+}
+
+hr{
+  border: 1px solid rgb(255, 55, 100);
+}
+
+.left{
+  width:25%;
+  height: 100%;
+  float: left;
+}
+
+.middle {
+  margin-left: 3px;
+  background-color: rgb(255, 55, 100);
+  float:left;
+  width:2px;
+  height: 100%;
+}
+
+.right{
+  width:74%;
+  height: 100%;
+  float: right;
+}
+
+.la {
+  height: 10%;
+}
+
+.la_name {
+  height: 25%
+}
+
+.la_places {
+  height: 50%;
+}
+
+label {
+  font-family: 'Jua', sans-serif;
+  font-size: 30px;
+  margin: 30px 0px 30px 20px;
+}
+
+.out {
+  text-align: right;
+  height: 50px;
+  margin: 2px 5px 0px 0px;
+}
+
+.x {
+  background-color: rgba(255, 255, 255, 0);
+  width: 50px;
+  height: 50px;
+  border: none;
+}
+
+img {
+  width: 50px;
+  height: 50px;
+}
+
+.buttons{
+  vertical-align: middle;
+  text-align: center;
+}
+
+.de_btn {
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+  font-family: 'Jua', sans-serif;
+  font-size: 25px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(255, 55, 100);
+  border: none;
+  text-align: center;
+  margin: 10px 5px 10px 5px;
+}
+
+.de_btn:hover {
+  color: rgb(255, 255, 255);
+  background-color: rgb(45, 62, 80);
+}

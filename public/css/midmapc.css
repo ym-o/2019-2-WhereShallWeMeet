@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css?family=Solway|Calistoga|Jua&display=swap&subset=korean');
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  /*vh(view height)로 창 크기 조절 시 유동적으로 조절되도록*/
+  overflow: hidden
+}
+
+nav {
+  width: 100%;
+  background-color: rgb(45, 62, 80);
+  display: table;
+  border-collapse: collapse;
+  table-layout: fixed;
+  border: none;
+}
+
+nav ul #category {
+  display: table-row;
+  background-color: rgb(45, 62, 80);
+}
+
+nav li {
+  float: left;
+  display: table-cell;
+  text-align: center;
+  padding: 0px 10px 10px 0px;
+  margin: 0px 20px 0px 20px;
+  background-color: rgb(45, 62, 80);
+  color: rgb(255, 255, 255);
+}
+
+nav li a {
+  font-family: 'Jua', sans-serif;
+  font-size: 30px;
+  color: white;
+  text-decoration: none;
+}
+
+.map_div {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.btn1 {
+  position: absolute;
+  top: 83vh;
+  left: 46vw;
+  bottom: 0;
+  width: 150px;
+  height: 60px;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+}
+
+.button1 {
+  display: inline-block;
+  border-radius: 10px;
+  width: 150px;
+  height: 60px;
+  font-family: 'Jua', sans-serif;
+  font-size: 30px;
+  color: rgb(255, 255, 255);
+  background-color: rgba(255, 55, 100, 0.9);
+  border: none;
+  text-align: center;
+}
+
+.button1:hover {
+  color: rgb(255, 55, 100);
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.infow {
+font-family: 'Jua', sans-serif;
+  font-size: 20px;
+  text-align: center;
+  padding:5px;
+  width:150px;
+}
