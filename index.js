@@ -143,8 +143,12 @@ app.post('/places', function(req, res) {
 
 // history.html - history 페이지
 app.set('view engine','ejs');
-app.post('/history',function(req,res){
-//307
+app.post('/history', function(req, res) {
+  var body = req.body;
+  var sql = 'delete from test where id = ' + "'" + body.rowId + "'";
+  connection.query(sql);
+  res.redirect(302, '/history');
+  //307
 });
 app.get('/history', function(req, res) {
   var sql = 'SELECT * FROM test';
