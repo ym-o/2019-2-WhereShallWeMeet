@@ -52,16 +52,18 @@
       var meetButton = 'meet'.concat(i);
       var meetAttend = 'meet_attend'.concat(i);
       var meetPlaces = 'meet_places'.concat(i);
+      var meetId = 'meet_id'.concat(i);
 
       var meet_body = document.getElementById('meet_body');
       var row = meet_body.insertRow(meet_body.rows.length);
 
-      var cell1 = row.insertCell(0);
-      var cell2 = row.insertCell(1);
-      var cell3 = row.insertCell(2);
-      var cell4 = row.insertCell(3);
-      var cell5 = row.insertCell(4);
-      var cell6 = row.insertCell(5);
+      var cell1 = row.insertCell(0); //번호
+      var cell2 = row.insertCell(1); //모임 이름(숨김)
+      var cell3 = row.insertCell(2); //모임 날짜
+      var cell4 = row.insertCell(3); //모임 장소들(숨김)
+      var cell5 = row.insertCell(4); //모임 이름
+      var cell6 = row.insertCell(5); //자세히 버튼
+      var cell7 = row.insertCell(6); //id번호(숨김)
 
       cell1.innerHTML = "<a id='meet_num'>" + i + "</a>";
       cell2.innerHTML = '<a class="no" id="meet_attend"></a>';
@@ -69,15 +71,20 @@
       cell4.innerHTML = '<a class="no" id="meet_places"></a>';
       cell5.innerHTML = '<label id="meet_name" />';
       cell6.innerHTML = '<button class="more" id="meet">more</button>';
+      cell7.innerHTML = '<a class="no" id="meet_id"></a>';
 
       document.getElementById('meet_date').id = meetDate;
       document.getElementById('meet_name').id = meetName;
       document.getElementById('meet').id = meetButton;
       document.getElementById('meet_attend').id = meetAttend;
       document.getElementById('meet_places').id = meetPlaces;
+      document.getElementById('meet_id').id =meetId;
+
 
       var row = db.split('},');
       var str = row[i - 1].split(',');
+      var mId = str[0].split(':');
+      document.getElementById(meetId).innerHTML = mId[1];
       var mName = str[1].split(':'); //두번째: :를 기준으로 항목별로 나눠진 부분에서 항목 이름과 값을 분류
       document.getElementById(meetName).innerHTML = mName[1];
       var mDate = str[2].split(':');
@@ -98,12 +105,13 @@
   </script>
 
   <!-- Modal -->
+
+  <form action="/history" method="post" enctype="application/x-www-form-urlencoded">
   <div class="more_full">
     <div class="more_box">
       <div class="out">
-        <button class="x"><img src="./img/x.png" /> </button>
+        <button class="x" onclick="location.href='history'"><img src="./img/x.png" /> </button>
       </div>
-
       <div class="details">
         <!-- 내용 -->
         <div class="left">
@@ -128,6 +136,7 @@
         <div class="right" id="meet_more">
           <div class="la">
             <label id="pname">모임 이름</label>
+            <input id="pId" class="no" type="text" name="rowId"/>
           </div>
           <hr />
           <div class="la">
@@ -145,18 +154,25 @@
       </div>
 
       <div class="buttons">
-        <button class="de_btn" id="meet_remove1">
-          삭제
-        </button>
-        <button class="de_btn" id="meet_share1" button onclick="CopyLink()">공유 </button>
+          <input type="submit" class="de_btn" id="meet_remove1" value="삭제"/>
+          <!--button class="de_btn" id="meet_remove1" onclick="location.href='history'">
+            삭제
+          </button-->
+          <input type="button" class="de_btn" id="meet_share1" button onclick="CopyLink()" value="공유">
+
       </div>
+
     </div>
   </div>
 
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script>
+    // 아래 각 함수는 more버튼이 누르는 경우 테이블에서 해당 위치를 찾아서 more_full을 open한다.
+    // 이때 mysql에서 삭제도 하기 위해서 모임 이름과
     $('#meet1').on('click', function() {
       $('.more_full').toggleClass('open');
+      var tId = document.getElementById('meet_id1').innerHTML;
+      document.getElementById('pId').value = tId;
       var tname = document.getElementById('meet_name1').innerHTML;
       document.getElementById('pname').innerHTML = tname;
       var tdate = document.getElementById('meet_date1').innerHTML;
@@ -170,6 +186,8 @@
     });
     $('#meet2').on('click', function() {
       $('.more_full').toggleClass('open');
+      var tId = document.getElementById('meet_id2').innerHTML;
+      document.getElementById('pId').value = tId;
       var tname = document.getElementById('meet_name2').innerHTML;
       document.getElementById('pname').innerHTML = tname;
       var tdate = document.getElementById('meet_date2').innerHTML;
@@ -183,6 +201,8 @@
     });
     $('#meet3').on('click', function() {
       $('.more_full').toggleClass('open');
+      var tId = document.getElementById('meet_id3').innerHTML;
+      document.getElementById('pId').value = tId;
       var tname = document.getElementById('meet_name3').innerHTML;
       document.getElementById('pname').innerHTML = tname;
       var tdate = document.getElementById('meet_date3').innerHTML;
@@ -196,6 +216,8 @@
     });
     $('#meet4').on('click', function() {
       $('.more_full').toggleClass('open');
+      var tId = document.getElementById('meet_id4').innerHTML;
+      document.getElementById('pId').value = tId;
       var tname = document.getElementById('meet_name4').innerHTML;
       document.getElementById('pname').innerHTML = tname;
       var tdate = document.getElementById('meet_date4').innerHTML;
@@ -209,6 +231,8 @@
     });
     $('#meet5').on('click', function() {
       $('.more_full').toggleClass('open');
+      var tId = document.getElementById('meet_id5').innerHTML;
+      document.getElementById('pId').value = tId;
       var tname = document.getElementById('meet_name5').innerHTML;
       document.getElementById('pname').innerHTML = tname;
       var tdate = document.getElementById('meet_date5').innerHTML;
@@ -222,6 +246,8 @@
     });
     $('#meet6').on('click', function() {
       $('.more_full').toggleClass('open');
+      var tId = document.getElementById('meet_id6').innerHTML;
+      document.getElementById('pId').value = tId;
       var tname = document.getElementById('meet_name6').innerHTML;
       document.getElementById('pname').innerHTML = tname;
       var tdate = document.getElementById('meet_date6').innerHTML;
@@ -235,6 +261,8 @@
     });
     $('#meet7').on('click', function() {
       $('.more_full').toggleClass('open');
+      var tId = document.getElementById('meet_id7').innerHTML;
+      document.getElementById('pId').value = tId;
       var tname = document.getElementById('meet_name7').innerHTML;
       document.getElementById('pname').innerHTML = tname;
       var tdate = document.getElementById('meet_date7').innerHTML;
@@ -248,6 +276,8 @@
     });
     $('#meet8').on('click', function() {
       $('.more_full').toggleClass('open');
+      var tId = document.getElementById('meet_id8').innerHTML;
+      document.getElementById('pId').value = tId;
       var tname = document.getElementById('meet_name8').innerHTML;
       document.getElementById('pname').innerHTML = tname;
       var tdate = document.getElementById('meet_date8').innerHTML;
@@ -261,6 +291,8 @@
     });
     $('#meet9').on('click', function() {
       $('.more_full').toggleClass('open');
+      var tId = document.getElementById('meet_id9').innerHTML;
+      document.getElementById('pId').value = tId;
       var tname = document.getElementById('meet_name9').innerHTML;
       document.getElementById('pname').innerHTML = tname;
       var tdate = document.getElementById('meet_date9').innerHTML;
@@ -274,6 +306,8 @@
     });
     $('#meet10').on('click', function() {
       $('.more_full').toggleClass('open');
+      var tId = document.getElementById('meet_id10').innerHTML;
+      document.getElementById('pId').value = tId;
       var tname = document.getElementById('meet_name10').innerHTML;
       document.getElementById('pname').innerHTML = tname;
       var tdate = document.getElementById('meet_date10').innerHTML;
@@ -286,12 +320,14 @@
       return false;
     });
 
+    //링크 복사 함수
     function CopyLink() {
 
       copyTextToClipboard(location.href);
 
     }
 
+    //공유 버튼 함수
     function copyTextToClipboard(text) {
 
       alert('클립보드에 복사 됬습니다.');
@@ -322,15 +358,12 @@
       document.body.removeChild(textArea);
     }
 
-
-
+    //x버튼을 눌렀을 때 함수
     $('.x').on('click', function() {
       $('.more_full').toggleClass('close');
       return false;
     });
   </script>
-
-  </script>
+  </form>
 </body>
-
 </html>
