@@ -94,9 +94,8 @@ private key를 생성하려면 [puttyGen](https://www.puttygen.com/)이 필요�
 ![](https://github.com/jisoo449/where_shall_we_meet/blob/master/readmeimg/%EC%A2%85%EB%A3%8C1.PNG)
 <br/><br/>  
 <br/><br/>  
-### 4. tmap 지도 api 사용  
-설명서 : [http://tmapapi.sktelecom.com/main.html#webservice/guide/webserviceGuide.guide4](http://tmapapi.sktelecom.com/main.html#webservice/guide/webserviceGuide.guide4)  
-해당 페이지를 참고하여 코딩을 진행하자
+### 4. kakao map api 사용  
+
 ### 5. Database 사용
 DB 접속하는법 
 1. AWS-RDS에서 사용하고자 하는 Database를 작업이 다음과 같이 사용가능 상태여야 한다.(중지되어있다면 작업->시작을 해주면 된다.)
