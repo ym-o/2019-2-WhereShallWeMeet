@@ -6,7 +6,7 @@ Web page that provides a service that calculates the midpoint of people who atte
 ### 1. 프로그램 소개
 ### 2. node js 설치 및 이용
 ### 3. aws(웹서버)  
-### 4. tmap 지도 api 사용
+### 4. KAKAO 지도 api 사용
 ### 5. Database 사용
 <br/><br/>
 # 1. 프로그램 소개
